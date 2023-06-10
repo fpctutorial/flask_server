@@ -12,11 +12,7 @@ def home():
 		source = rm[0]
 		speedtest.SOURCE = source
 		#socket.socket = speedtest.bound_socket
-		s = speedtest.Speedtest()
-		s.get_best_server()
-		s.download()
-		s.upload()
-		
+		s = speedtest.Speedtest()		
 		print (rm[0])
 		print (rm[1])
 		#s = speedtest.Speedtest(source_address=rm[0])

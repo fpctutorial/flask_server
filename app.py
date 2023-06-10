@@ -17,6 +17,11 @@ def home():
 		print (rm[1])
 		#s = speedtest.Speedtest(source_address=rm[0])
 
+		url = 'http://freegeoip.net/json/{}'.format(rm[0])
+		r = requests.get(url)
+		j = json.loads(r.text)
+		city = j['city']
+		print(city)
 		s.get_servers()
 		s.get_best_server()
 		s.download()

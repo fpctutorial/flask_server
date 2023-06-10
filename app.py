@@ -11,7 +11,7 @@ def home():
 		rm = rm_address.split(",")
 		print (rm[0])
 		print (rm[1])
-		s = speedtest.Speedtest()
+		s = speedtest.Speedtest(source_address=rm[0])
 
 		s.get_servers()
 		s.get_best_server()

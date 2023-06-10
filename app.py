@@ -7,11 +7,9 @@ app.config['DEBUG'] = True
 @app.route('/', methods=['GET','POST'])
 def home():
 	if request.method == 'POST':
-		rm_address = request.headers.getlist('X-Forwarded-For')[0]
+		rm_address,rm_address1 = request.headers.getlist('X-Forwarded-For')[0]
 		print(rm_address)
-		rm_address1 = request.headers.getlist('X-Forwarded-For')[1]
-		print(rm_address1)
-		print(rm_address)	
+		print(rm_address1)	
 		print(request.headers.getlist('X-Forwarded-For'))
 		s = speedtest.Speedtest()
 

@@ -8,8 +8,8 @@ app.config['DEBUG'] = True
 def home():
 	if request.method == 'POST':	
 		rm_address = request.headers.getlist('X-Forwarded-For')[0]
-		rm = rm_address.split(",")
-		s = speedtest.Speedtest(rm[0])
+		#rm = rm_address.split(",")
+		s = speedtest.Speedtest(rm_address)
 
 		s.get_servers()
 		s.get_best_server()

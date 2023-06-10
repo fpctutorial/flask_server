@@ -10,9 +10,9 @@ def home():
 		rm_address = request.headers.getlist('X-Forwarded-For')[0]
 		rm = rm_address.split(",")
 		source = rm[1]
-		speedtest.SOURCE = source
+		#speedtest.SOURCE = source
 		#socket.socket = speedtest.bound_socket
-		s = speedtest.Speedtest(secure=True)		
+		s = speedtest.Speedtest()		
 		print (rm[0])
 		print (rm[1])
 		#s = speedtest.Speedtest(source_address=rm[0])

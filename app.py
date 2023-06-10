@@ -7,9 +7,8 @@ app.config['DEBUG'] = True
 @app.route('/', methods=['GET','POST'])
 def home():
 	if request.method == 'POST':
-		rm_address = request.headers.getlist('X-Forwarded-For')[0]
-		print(type(rm_address))
-		print(rm_address)
+		#rm_address = request.headers.getlist('X-Forwarded-For')[0]
+
 		s = speedtest.Speedtest()
 
 		s.get_servers()

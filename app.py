@@ -7,7 +7,8 @@ app.config['DEBUG'] = True
 @app.route('/', methods=['GET','POST'])
 def home():
 	if request.method == 'POST':
-		s = speedtest.Speedtest()
+		rm_address = request.headers.getlist('X-Forwarded-For')[0]
+		s = speedtest.Speedtest(None, rm_address,20,True)
 		s.get_servers()
 		s.get_best_server()
 		s.download()

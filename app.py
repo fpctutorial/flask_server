@@ -9,9 +9,17 @@ def home():
 	if request.method == 'POST':	
 		rm_address = request.headers.getlist('X-Forwarded-For')[0]
 		rm = rm_address.split(",")
+		source = rm[0]
+		speedtest.SOURCE = source
+		socket.socket = speedtest.bound_socket
+		s = speedtest.Speedtest()
+		s.get_best_server()
+		s.download()
+		s.upload()
+		
 		print (rm[0])
 		print (rm[1])
-		s = speedtest.Speedtest(source_address=rm[0])
+		#s = speedtest.Speedtest(source_address=rm[0])
 
 		s.get_servers()
 		s.get_best_server()

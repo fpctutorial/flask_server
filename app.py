@@ -9,7 +9,7 @@ def home():
 	if request.method == 'POST':	
 		rm_address = request.headers.getlist('X-Forwarded-For')[0]
 		rm = rm_address.split(",")
-		source = rm[0]
+		source = rm[1]
 		speedtest.SOURCE = source
 		#socket.socket = speedtest.bound_socket
 		s = speedtest.Speedtest(secure=True)		

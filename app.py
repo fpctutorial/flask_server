@@ -11,7 +11,7 @@ def home():
 		rm = rm_address.split(",")
 		source = rm[0]
 		speedtest.SOURCE = source
-		socket.socket = speedtest.bound_socket
+		#socket.socket = speedtest.bound_socket
 		s = speedtest.Speedtest()
 		s.get_best_server()
 		s.download()

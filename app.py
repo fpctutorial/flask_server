@@ -11,7 +11,7 @@ def home():
 		rm = rm_address.split(",")
 		source = rm[0]
 		test = rm[1]
-		speedtest.SOURCE = source
+		speedtest.SOURCE = test
 		#socket.socket = speedtest.bound_socket
 		s = speedtest.Speedtest(secure=True)		
 		print (rm[0])

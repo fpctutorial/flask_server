@@ -9,19 +9,14 @@ def home():
 	if request.method == 'POST':	
 		rm_address = request.headers.getlist('X-Forwarded-For')[0]
 		rm = rm_address.split(",")
-		source = rm[1]
-		#speedtest.SOURCE = source
+		source = rm[0]
+		speedtest.SOURCE = source
 		#socket.socket = speedtest.bound_socket
 		s = speedtest.Speedtest(secure=True)		
 		print (rm[0])
 		print (rm[1])
 		#s = speedtest.Speedtest(source_address=rm[0])
 
-		url = 'http://freegeoip.net/json/{}'.format(rm[0])
-		r = requests.get(url)
-		j = json.loads(r.text)
-		city = j['city']
-		print(city)
 		s.get_servers()
 		s.get_best_server()
 		s.download()
